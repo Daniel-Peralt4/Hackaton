@@ -1,0 +1,132 @@
+/* Contenedor principal del componente */
+.tareas-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del proyecto */
+.tareas-proyecto-nombre {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Selector de fase */
+.tareas-fase-selector {
+    margin-bottom: 20px;
+}
+
+.tareas-fase-selector label {
+    font-size: 16px;
+    margin-right: 10px;
+    color: #555;
+}
+
+.tareas-select {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Contenedor para agregar tareas */
+.tareas-agregar {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.tareas-agregar h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.tareas-input {
+    margin-right: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(50% - 15px);
+}
+
+.tareas-boton-agregar {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tareas-boton-agregar:hover {
+    background-color: #0056b3;
+}
+
+/* Lista de tareas */
+.tareas-lista {
+    margin-top: 20px;
+}
+
+.tareas-lista h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.tareas-ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tareas-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tareas-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tareas-titulo {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+.tareas-descripcion {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.tareas-estado {
+    font-size: 14px;
+    font-style: italic;
+    color: #777;
+}
+
+/* Mensaje cuando no hay tareas */
+.tareas-no-encontradas {
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    margin-top: 20px;
+}
