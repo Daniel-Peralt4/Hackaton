@@ -26,6 +26,7 @@ app.use("/usuarios", usuariosRouter);
 app.use("/proyectos", proyectosRouter);
 app.use("/facultades", facultadesRouter);
 app.use("/programas", programasRouter);
+app.use("/auth", usuariosRouter);
 
 app.listen(port, ()=>{
     console.log(`El servidor está corriendo en el puerto ${port}`);

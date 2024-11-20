@@ -22,7 +22,26 @@ async function listarUsuarios() {
     }
 };
 
+async function autenticarUsuario(user, contraseña) {
+    try {
+        const usuario = await models.usuarios.findOne({where: {usuario: user}});
+        
+        if(!usuario){
+            return {mensaje: "Usuario no encontrado", autenticado: false}
+        }
+        if(usuario.contraseña !== contraseña){
+            return {mensaje: "Contraseña incorrecta", autenticado: false}
+        }
+
+        return {mensaje: "Usuario autenticado correctamente", autenticado: true, usuario}
+    } catch (error) {
+        console.log("Error al autenticar el usuario", error)
+        return {mensaje: "Error al autenticar usuario", autenticado: false}
+    }
+};
+
 module.exports = {
     nuevoUsuario,
     listarUsuarios,
+    autenticarUsuario,
 }
