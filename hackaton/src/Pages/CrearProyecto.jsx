@@ -1,96 +1,127 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
-const CrearProyecto = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    leader: "",
-    deadline: ""
-  })
-
-  const [submittedData, setSubmittedData] = useState(null) // Para mostrar el resultado
+function ProjectForm() {
+  const [project, setProject] = useState({
+    id: 1,
+    name: "Sistema de Gestión Ambiental",
+    description: "Desarrollo de un sistema para monitoreo y control ambiental en el campus universitario",
+    status: "En Progreso",
+    leader: "Dr. María González",
+    members: ["Juan Pérez", "Ana Rodríguez", "Carlos Martínez"],
+    deadline: "2024-04-15",
+    progress: 75,
+  });
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-  }
+    const { name, value } = e.target;
+    setProject((prevProject) => ({
+      ...prevProject,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setSubmittedData(formData) // Guarda la información ingresada
-    setFormData({ name: "", leader: "", deadline: "" }) // Reinicia el formulario
-  }
+    e.preventDefault();
+    console.log("Proyecto guardado:", project);
+  };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <form
-        onSubmit={handleSubmit}
-        className="p-4 space-y-3 bg-white shadow-lg rounded-lg border w-80"
-      >
-        <h2 className="text-lg font-bold text-gray-800 text-center">Nuevo Proyecto</h2>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Nombre</label>
+    <div style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}>
+      <h1>Crear Proyecto</h1>
+      <form onSubmit={handleSubmit}>
+        <div style={{ marginBottom: "15px" }}>
+          <label>Nombre:</label>
           <input
             type="text"
             name="name"
-            value={formData.name}
+            value={project.name}
             onChange={handleChange}
-            className="w-full px-2 py-1 border rounded-lg text-sm"
-            required
+            style={{ width: "100%", padding: "8px" }}
           />
         </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Líder</label>
+        <div style={{ marginBottom: "15px" }}>
+          <label>Facultad:</label>
+          <select
+            type="text"
+            name="name"
+            value={project.name}
+            onChange={handleChange}
+            style={{ width: "100%", padding: "8px" }}
+          />
+        </div>
+        <div style={{ marginBottom: "15px" }}>
+          <label>Programa:</label>
+          <input
+            type="text"
+            name="name"
+            value={project.name}
+            onChange={handleChange}
+            style={{ width: "100%", padding: "8px" }}
+          />
+        </div>
+        <div style={{ marginBottom: "15px" }}>
+          <label>Descripción:</label>
+          <textarea
+            name="description"
+            value={project.description}
+            onChange={handleChange}
+            style={{ width: "100%", padding: "8px" }}
+          />
+        </div>
+        <div style={{ marginBottom: "15px" }}>
+          <label>Estado:</label>
+          <select
+            name="status"
+            value={project.status}
+            onChange={handleChange}
+            style={{ width: "100%", padding: "8px" }}
+          >
+            <option value="En Progreso">En Progreso</option>
+            <option value="Completado">Completado</option>
+            <option value="Pendiente">Pendiente</option>
+          </select>
+        </div>
+        <div style={{ marginBottom: "15px" }}>
+          <label>Líder:</label>
           <input
             type="text"
             name="leader"
-            value={formData.leader}
+            value={project.leader}
             onChange={handleChange}
-            className="w-full px-2 py-1 border rounded-lg text-sm"
-            required
+            style={{ width: "100%", padding: "8px" }}
           />
         </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Fecha límite</label>
+        <div style={{ marginBottom: "15px" }}>
+          <label>Miembros:</label>
+          <input
+            type="text"
+            name="members"
+            value={project.members.join(", ")}
+            onChange={(e) =>
+              setProject((prevProject) => ({
+                ...prevProject,
+                members: e.target.value.split(",").map((member) => member.trim()),
+              }))
+            }
+            style={{ width: "100%", padding: "8px" }}
+          />
+        </div>
+        <div style={{ marginBottom: "15px" }}>
+          <label>Fecha límite:</label>
           <input
             type="date"
             name="deadline"
-            value={formData.deadline}
+            value={project.deadline}
             onChange={handleChange}
-            className="w-full px-2 py-1 border rounded-lg text-sm"
-            required
+            style={{ width: "100%", padding: "8px" }}
           />
         </div>
-
-        <div className="flex justify-end space-x-2">
-          <button
-            type="reset"
-            onClick={() => setFormData({ name: "", leader: "", deadline: "" })}
-            className="px-3 py-1 bg-gray-200 text-gray-700 rounded-lg text-sm hover:bg-gray-300"
-          >
-            Reiniciar
-          </button>
-          <button
-            type="submit"
-            className="px-3 py-1 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700"
-          >
-            Guardar
-          </button>
-        </div>
+        <button type="submit" style={{ padding: "10px 20px", background: "#007BFF", color: "#FFF", border: "none", cursor: "pointer" }}>
+          Guardar
+        </button>
       </form>
-
-      {submittedData && (
-        <div className="mt-6 p-4 bg-white shadow rounded-lg border w-80">
-          <h3 className="text-lg font-bold text-gray-800">Proyecto Guardado</h3>
-          <p className="text-sm text-gray-600">Nombre: {submittedData.name}</p>
-          <p className="text-sm text-gray-600">Líder: {submittedData.leader}</p>
-          <p className="text-sm text-gray-600">Fecha límite: {submittedData.deadline}</p>
-        </div>
-      )}
     </div>
-  )
+  );
 }
 
-export default CrearProyecto
+export default ProjectForm;

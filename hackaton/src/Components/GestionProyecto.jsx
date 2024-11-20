@@ -37,7 +37,7 @@ const GestionProyecto = () => {
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-gray-800">Proyectos</h1>
           <button  className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-indigo-700 transition-colors botonProyecto">
-            <Link to="/CrearProyecto" style={{textDecoration: "none", color: "white", display: "flex", alignItems: "center"}}>
+            <Link to="/Proyecto" style={{textDecoration: "none", color: "white", display: "flex", alignItems: "center"}}>
               <Plus className="h-5 w-5" />
               <span>Nuevo Proyecto</span>
             </Link>
