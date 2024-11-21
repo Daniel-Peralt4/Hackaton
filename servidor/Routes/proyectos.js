@@ -1,6 +1,7 @@
 const express = require("express");
 const proyectosRouter = express.Router();
 const proyectosService = require("../Services/proyectos");
+const programasService = require("../Services/programas");
 
 proyectosRouter.post('/registrar', async function (req, res, next) {
     try {
@@ -25,6 +26,15 @@ proyectosRouter.get('/:estado', async function (req, res, next) {
         res.json(await proyectosService.proyectosPorEstado(req.params.estado));
     } catch (err) {
         console.error("Error al obtener los proyectos por dicho estado", err.message);
+        next(err);
+    }
+});
+
+proyectosRouter.get('/programa/:idprograma', async (req, res, next) => {
+    try {
+        res.json(await programasService.proyectosPorPrograma(req.params.idprograma));
+    } catch (err) {
+        console.error("Error al obtener los proyectos por dicho programa", err.message);
         next(err);
     }
 });

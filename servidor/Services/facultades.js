@@ -12,6 +12,41 @@ async function nuevaFacultad(facultad) {
     }
 };
 
+async function listarFacultades() {
+    try {
+        const facultades = await models.facultades.findAll();
+        return {mensaje: "Lista de Facultades", facultades}
+    } catch (error) {
+        console.log(error)
+        return {mensaje: "Facultades no encotradas"};
+    }
+}
+
+async function programasPorFacultad(idfacultad) {
+    try {
+        const facultad = await models.facultades.findOne({
+            where: { idfacultad: idfacultad },
+            include: {
+                model: models.programas,
+                as: 'programas', // Alias configurado en la asociación
+                attributes: ['idprogramas', 'programas'] // Selecciona solo los campos necesarios
+            }
+        });
+
+        if (!facultad) {
+            return { mensaje: "No se encontró la facultad con el ID proporcionado" };
+        }
+
+        return { mensaje: "Programas según la facultad ingresada", facultad };
+    } catch (error) {
+        console.error(error);
+        return { mensaje: "Error al buscar los programas por facultad" };
+    }
+}
+
+
 module.exports = {
     nuevaFacultad,
+    listarFacultades,
+    programasPorFacultad,
 }

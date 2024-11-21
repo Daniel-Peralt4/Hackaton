@@ -37,7 +37,26 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+db.facultades.hasMany(db.programas, {
+  foreignKey: 'idfacultad',
+  as: 'programas'
+});
+
+db.programas.belongsTo(db.facultades, {
+  foreignKey: 'idfacultad',
+  as: 'facultad'
+});
+
+db.programas.hasMany(db.proyectos, {
+  foreignKey: 'idprograma',
+  as: 'proyectos'
+});
+
+db.proyectos.belongsTo(db.programas, {
+  foreignKey: 'idprograma',
+  as: 'programa'
+});
+
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
 
 module.exports = db;
