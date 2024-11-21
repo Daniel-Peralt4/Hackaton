@@ -1,5 +1,6 @@
 import { Bar, Pie, Line } from 'react-chartjs-2';
 import 'chart.js/auto';
+import "../Styles/Graficas.css"
 
 const Graficas = () => {
     // Datos para el estado de los proyectos
@@ -41,7 +42,7 @@ const Graficas = () => {
     };
   
     return (
-      <div className="dashboard-container">
+      <div className="graficas-container">
         <h2 className="dashboard-title">Gráficas de Proyectos</h2>
   
         <div className="chart-container">
