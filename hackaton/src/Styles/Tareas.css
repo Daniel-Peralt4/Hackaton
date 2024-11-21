@@ -38,7 +38,7 @@
 /* Contenedor para agregar tareas */
 .tareas-agregar {
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -60,7 +60,8 @@
 }
 
 .tareas-boton-agregar {
-    padding: 8px 15px;
+    margin: 20px 0px 0px 0px;
+    padding: 10px 50px;
     background-color: #007bff;
     color: #fff;
     font-size: 14px;
@@ -129,4 +130,25 @@
     color: #999;
     text-align: center;
     margin-top: 20px;
+}
+.tareas-estado-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.tareas-boton-cambiar-estado {
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tareas-boton-cambiar-estado:hover {
+    background-color: #025dbe;
 }

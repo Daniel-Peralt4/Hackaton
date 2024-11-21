@@ -35,6 +35,25 @@ const Tareas = () => {
         }
     };
 
+    const toggleTaskStatus = (index) => {
+        setTasks({
+            ...tasks,
+            [currentPhase]: tasks[currentPhase].map((task, i) =>
+                i === index
+                    ? {
+                          ...task,
+                          status:
+                              task.status === "Pendiente"
+                                  ? "En progreso"
+                                  : task.status === "En progreso"
+                                  ? "Completada"
+                                  : "Pendiente",
+                      }
+                    : task
+            ),
+        });
+    };
+
     return (
         <div className="tareas-container">
             <h1 className="tareas-proyecto-nombre">Proyecto:</h1>
@@ -84,9 +103,17 @@ const Tareas = () => {
                             <li key={index} className="tareas-item">
                                 <strong className="tareas-titulo">{task.title}</strong>
                                 <p className="tareas-descripcion">{task.description}</p>
-                                <span className="tareas-estado">
-                                    Estado: <em>{task.status}</em>
-                                </span>
+                                <div className="tareas-estado-container">
+                                    <span className="tareas-estado">
+                                        Estado: <em>{task.status}</em>
+                                    </span>
+                                    <button
+                                        onClick={() => toggleTaskStatus(index)}
+                                        className="tareas-boton-cambiar-estado"
+                                    >
+                                        Cambiar Estado
+                                    </button>
+                                </div>
                             </li>
                         ))}
                     </ul>
@@ -101,4 +128,3 @@ const Tareas = () => {
 };
 
 export default Tareas;
-
