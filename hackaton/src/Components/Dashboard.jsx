@@ -33,7 +33,7 @@ const Dashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-500">Proyectos Activos</p>
-                <p className="text-2xl font-semibold text-gray-800">12</p>
+                <p className="text-2xl font-semibold text-gray-800">2</p>
               </div>
               <div className="bg-blue-100 p-3 rounded-lg">
                 <BarChart3 className="h-6 w-6 text-blue-600" />
@@ -45,7 +45,7 @@ const Dashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-500">Estudiantes</p>
-                <p className="text-2xl font-semibold text-gray-800">48</p>
+                <p className="text-2xl font-semibold text-gray-800">8</p>
               </div>
               <div className="bg-green-100 p-3 rounded-lg">
                 <Users className="h-6 w-6 text-green-600" />
@@ -57,7 +57,7 @@ const Dashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-500">Próximas Entregas</p>
-                <p className="text-2xl font-semibold text-gray-800">5</p>
+                <p className="text-2xl font-semibold text-gray-800">2</p>
               </div>
               <div className="bg-yellow-100 p-3 rounded-lg">
                 <Clock className="h-6 w-6 text-yellow-600" />
@@ -69,7 +69,7 @@ const Dashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-500">Completados</p>
-                <p className="text-2xl font-semibold text-gray-800">8</p>
+                <p className="text-2xl font-semibold text-gray-800">0</p>
               </div>
               <div className="bg-purple-100 p-3 rounded-lg">
                 <CheckCircle className="h-6 w-6 text-purple-600" />
