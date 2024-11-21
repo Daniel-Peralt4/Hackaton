@@ -11,10 +11,13 @@ const GestionProyecto = () => {
       name: "Sistema de Gestión Ambiental",
       description:
         "Desarrollo de un sistema para monitoreo y control ambiental en el campus universitario",
+      Objetivo: "En Progreso",
+      Programa: "En Progreso",
       status: "En Progreso",
       leader: "Dr. María González",
       members: ["Juan Pérez", "Ana Rodríguez", "Carlos Martínez"],
-      deadline: "2024-04-15",
+      FechaInicio: "2024-04-10",
+      FechaFin: "2024-04-15",
       progress: 75
     },
     {
@@ -25,7 +28,8 @@ const GestionProyecto = () => {
       status: "Planificación",
       leader: "Dra. Laura Benítez",
       members: ["Pedro Sánchez", "María Torres"],
-      deadline: "2024-05-20",
+      FechaInicio: "2024-05-10",
+      FechaFin: "2024-05-20",
       progress: 45
     }
   ]
@@ -81,9 +85,26 @@ const GestionProyecto = () => {
                     {project.status}
                   </span>
                 </div>
+                <div>
+                  <p className="text-gray-600 text-sm">
+                    <span style={{fontWeight: "bold"}}>Descripción: </span>
+                    {project.description}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gray-600 text-sm">
+                    <span style={{fontWeight: "bold"}}>Objetivo: </span>
+                    {project.Objetivo}
+                  </p>
+                </div>
 
-                <p className="text-gray-600 text-sm">{project.description}</p>
-
+                <div>
+                  <p className="text-gray-600 text-sm">
+                    <span style={{fontWeight: "bold"}}>Programa: </span>
+                    {project.Programa}
+                  </p>
+                </div>
+                
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-500">Progreso</span>
@@ -102,14 +123,7 @@ const GestionProyecto = () => {
                 <div className="space-y-2">
                   <p className="text-sm text-gray-500">Líder del Proyecto</p>
                   <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center">
-                      <span className="text-sm font-medium text-indigo-600">
-                        {project.leader
-                          .split(" ")
-                          .map(n => n[0])
-                          .join("")}
-                      </span>
-                    </div>
+                    
                     <span className="text-sm font-medium text-gray-700">
                       {project.leader}
                     </span>
@@ -134,12 +148,20 @@ const GestionProyecto = () => {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-gray-100">
+                <div className="pt-4 border-t border-gray-100" style={{padding: "0"}}>
                   <hr style={{color:"#48474d077"}} />
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-500">Fecha Inicio</span>
+                    <span className="text-gray-700 font-medium">
+                      {new Date(project.FechaInicio).toLocaleDateString()}
+                    </span>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-gray-100" style={{padding: "0"}}>
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-gray-500">Fecha límite</span>
                     <span className="text-gray-700 font-medium">
-                      {new Date(project.deadline).toLocaleDateString()}
+                      {new Date(project.FechaFin).toLocaleDateString()}
                     </span>
                   </div>
                 </div>

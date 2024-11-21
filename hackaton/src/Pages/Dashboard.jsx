@@ -4,7 +4,8 @@ import {
   BookOpen,
   BarChart3,
   Layout,
-  LogOut
+  LogOut,
+  FileText
 } from "lucide-react"
 import "../Styles/Aplication.css"
 import Dashboard from "../Components/Dashboard"
