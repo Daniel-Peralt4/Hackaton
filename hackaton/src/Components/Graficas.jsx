@@ -1,4 +1,5 @@
 import { Bar, Pie, Line } from 'react-chartjs-2';
+import 'chart.js/auto';
 
 const Graficas = () => {
     // Datos para el estado de los proyectos
