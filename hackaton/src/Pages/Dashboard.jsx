@@ -5,12 +5,12 @@ import {
   BarChart3,
   Layout,
   LogOut,
-  FileText
 } from "lucide-react"
 import "../Styles/Aplication.css"
 import Dashboard from "../Components/Dashboard"
 import FormProyecto from "../Components/GestionProyecto"
 import ChatBot from "../Components/ChatBot"
+import Graficas from "../Components/Graficas";
 
 function App() {
   const [activeTab, setActiveTab] = useState("Dashboard")
@@ -125,6 +125,7 @@ function App() {
           <main className="flex-1 p-8">
             {activeTab === "Dashboard" && <Dashboard />}
             {activeTab === "FormProyecto" && <FormProyecto />}
+            {activeTab === "Estadisticas" && <Graficas />}
             {/* {activeTab === "notifications" && <Notifications />} */}
           </main>
         </div>
