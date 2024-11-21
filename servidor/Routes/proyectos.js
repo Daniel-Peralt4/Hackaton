@@ -2,6 +2,7 @@ const express = require("express");
 const proyectosRouter = express.Router();
 const proyectosService = require("../Services/proyectos");
 const programasService = require("../Services/programas");
+const facultadesService = require("../Services/facultades");
 
 proyectosRouter.post('/registrar', async function (req, res, next) {
     try {
@@ -38,5 +39,14 @@ proyectosRouter.get('/programa/:idprograma', async (req, res, next) => {
         next(err);
     }
 });
+
+proyectosRouter.get('/facultad/:idfacultad', async function (req, res, next) {
+    try {
+        res.json(await facultadesService.proyectosPorFacultad(req.params.idfacultad));
+    } catch (err) {
+        console.error("Error al obtener los proyectos por dicha facultad", err.message);
+        next(err);
+    }
+})
 
 module.exports = proyectosRouter;

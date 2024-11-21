@@ -36,12 +36,35 @@ async function programasPorFacultad(idfacultad) {
         if (!facultad) {
             return { mensaje: "No se encontró la facultad con el ID proporcionado" };
         }
-
         return { mensaje: "Programas según la facultad ingresada", facultad };
     } catch (error) {
-        console.error(error);
+        console.log(error);
         return { mensaje: "Error al buscar los programas por facultad" };
     }
+}
+
+async function proyectosPorFacultad(idfacultad) {
+    try {
+        const facultad = await models.facultades.findOne({
+            where: { idfacultad: idfacultad },
+            include: {
+                model: models.programas,
+                as: 'programas',
+                include: {
+                    model: models.proyectos,
+                    as: 'proyectos',
+                    attributes: ['idproyecto', 'titulo']
+                }
+            }
+        });
+        if (!facultad) {
+            return { mensaje: "No se encontró la facultad con el ID proporcionado" };
+        }
+        return { mensaje: "Proyectos según la facultad ingresada", facultad };
+        } catch (error) {
+            console.log(error);
+            return { mensaje: "Error al buscar los proyectos por facultad" };
+        }
 }
 
 
@@ -49,4 +72,5 @@ module.exports = {
     nuevaFacultad,
     listarFacultades,
     programasPorFacultad,
+    proyectosPorFacultad,
 }
