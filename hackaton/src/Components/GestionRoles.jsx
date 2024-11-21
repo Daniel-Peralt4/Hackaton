@@ -38,6 +38,7 @@ const DynamicForm = () => {
             Nombre:
             </label>
             <input
+              className="form-input"
               type="text"
               name="name"
               value={field.name}
@@ -49,12 +50,13 @@ const DynamicForm = () => {
             Rol:
             </label>
             <select
+              className="form-select"
               name="role"
               value={field.role}
               onChange={(e) => handleInputChange(index, e)}
-              style={{padding: "5px", width: "100%" }}
+              style={{padding: "5px", width: "100%"}}
             >
-              <option value="">Seleccione un rol</option>
+              <option value="">Selecciona un rol</option>
               <option value="Director">Director de Programa</option>
               <option value="Lider">Lider de Proyecto</option>
               <option value="Colaborador">Colaborador</option>
