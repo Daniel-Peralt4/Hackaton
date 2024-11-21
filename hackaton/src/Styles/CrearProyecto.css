@@ -1,0 +1,8 @@
+.CrearProyecto {
+    display: flex; /* Flexbox */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    height: 100vh; /* Altura completa de la ventana */
+    background-color: #f7f7f7; /* Fondo opcional */
+    padding: 20px; /* Espaciado alrededor */
+}

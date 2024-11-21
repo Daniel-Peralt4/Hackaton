@@ -81,8 +81,19 @@ const GestionProyecto = () => {
                     {project.status}
                   </span>
                 </div>
-
-                <p className="text-gray-600 text-sm">{project.description}</p>
+                <div>
+                  <p className="text-gray-600 text-sm">
+                    <span style={{fontWeight: "bold"}}>Descripción: </span>
+                    {project.description}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gray-600 text-sm">
+                    <span style={{fontWeight: "bold"}}>Objetivo: </span>
+                    {project.Objetivo}
+                  </p>
+                </div>
+                
 
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">

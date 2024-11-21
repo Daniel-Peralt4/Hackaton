@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import GestionRoles from "../Components/GestionRoles"
+import "../Styles/CrearProyecto.css"
 
 function ProjectForm() {
   const [project, setProject] = useState({
-    id: 1,
-    name: "Sistema de Gestión Ambiental",
+    title: "Sistema de Gestión Ambiental",
     description: "Desarrollo de un sistema para monitoreo y control ambiental en el campus universitario",
-    status: "En Progreso",
-    leader: "Dr. María González",
-    members: ["Juan Pérez", "Ana Rodríguez", "Carlos Martínez"],
-    deadline: "2024-04-15",
-    progress: 75,
+    objetivo: "En Progreso",
+    FechaInicio: "Dr. María González",
+    FechaFin: ["Juan Pérez", "Ana Rodríguez", "Carlos Martínez"],
+    EstadoProyecto: "2024-04-15",
+    Facultad: "",
+    Programa: "",
   });
 
   const ProgramasPorFacultad = {
@@ -61,119 +63,158 @@ function ProjectForm() {
   };
 
   return (
-    <div style={{ maxWidth: "600px", margin: "0 auto", padding: "10px" }}>
-      <h1>Crear Proyecto</h1>
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: "15px" }}>
-          <label>Nombre:</label>
-          <input
-            type="text"
-            name="name"
-            value={project.name}
-            onChange={handleChange}
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
-        <div style={{ marginBottom: "15px" }}>
-        <label>Facultad:</label>
-        <select
-          name="faculty"
-          value={project.faculty}
-          onChange={handleChange}
-          style={{ width: "100%", padding: "8px" }}
+    <div className="CrearProyecto">
+      <div style={{ alignItems: "center"}}>
+        <h1>Crear Proyecto</h1>
+        <div
+          style={{
+            maxHeight: "33rem",
+            width: "60rem",
+            overflowY: "auto",
+            border: "1px solid #ccc",
+            borderRadius: "8px",
+            padding: "20px",
+            
+          }}
         >
-          <option value="">Selecciona una facultad</option>
-          {Object.keys(ProgramasPorFacultad).map((faculty) => (
-            <option key={faculty} value={faculty}>
-              {faculty}
-            </option>
-          ))}
-        </select>
+          <form onSubmit={handleSubmit}>
+            <div style={{ marginBottom: "15px" }}>
+              <label>Título:</label>
+              <input
+                type="text"
+                name="name"
+                value={project.title}
+                onChange={handleChange}
+                style={{ width: "100%", padding: "8px" }}
+              />
+            </div>
+            <div style={{ marginBottom: "15px" }}>
+              <label>Descripción:</label>
+              <textarea
+                name="description"
+                value={project.description}
+                onChange={handleChange}
+                style={{ width: "100%", padding: "8px" }}
+              />
+            </div>
+            <div style={{ marginBottom: "15px" }}>
+              <label>Objetivo:</label>
+              <textarea
+                name="objetivo"
+                value={project.objetivo}
+                onChange={handleChange}
+                style={{ width: "100%", padding: "8px" }}
+              />
+            </div>
+            <div style={{ marginBottom: "15px" }}>
+            <label>Facultad:</label>
+            <select
+              name="Facultad"
+              value={project.Facultad}
+              onChange={handleChange}
+              style={{ width: "100%", padding: "8px" }}
+            >
+              <option value="">Selecciona una facultad</option>
+              {Object.keys(ProgramasPorFacultad).map((Facultad) => (
+                <option key={Facultad} value={Facultad}>
+                  {Facultad}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div style={{ marginBottom: "15px" }}>
+            <label>Programa:</label>
+            <select
+              name="Programa"
+              value={project.Programa}
+              onChange={handleChange}
+              style={{ width: "100%", padding: "8px" }}
+              disabled={!project.Facultad} // Deshabilitar si no hay facultad seleccionada
+            >
+              <option value="">Selecciona un programa</option>
+              {project.Facultad &&
+                ProgramasPorFacultad[project.Facultad]?.map((Programa) => (
+                  <option key={Programa} value={Programa}>
+                    {Programa}
+                  </option>
+                ))}
+            </select>
+          </div>
+            
+            <div style={{ marginBottom: "15px" }}>
+              <label>Estado:</label>
+              <select
+                name="status"
+                value={project.EstadoProyecto}
+                onChange={handleChange}
+                style={{ width: "100%", padding: "8px" }}
+              >
+                <option value="En Progreso">En Progreso</option>
+                <option value="Completado">Completado</option>
+                <option value="Pendiente">Pendiente</option>
+              </select>
+            </div>
+            {/* <div style={{ marginBottom: "15px" }}>
+              <label>Líder:</label>
+              <input
+                type="text"
+                name="leader"
+                value={project.leader}
+                onChange={handleChange}
+                style={{ width: "100%", padding: "8px" }}
+              />
+            </div>
+            <div style={{ marginBottom: "15px" }}>
+              <label>Miembros:</label>
+              <input
+                type="text"
+                name="members"
+                value={project.members.join(", ")}
+                onChange={(e) =>
+                  setProject((prevProject) => ({
+                    ...prevProject,
+                    members: e.target.value.split(",").map((member) => member.trim()),
+                  }))
+                }
+                style={{ width: "100%", padding: "8px" }}
+              />
+            </div> */}
+            <div style={{ marginBottom: "15px" }}>
+              <label>Fecha de Inicio:</label>
+              <input
+                type="date"
+                name="deadline"
+                value={project.FechaInicio}
+                onChange={handleChange}
+                style={{ width: "100%", padding: "8px" }}
+              />
+            </div>
+            <div style={{ marginBottom: "15px" }}>
+              <label>Fecha límite:</label>
+              <input
+                type="date"
+                name="deadline"
+                value={project.FechaFin}
+                onChange={handleChange}
+                style={{ width: "100%", padding: "8px" }}
+              />
+            </div>
+            <div style={{ marginBottom: "15px" }}>
+              <GestionRoles />
+            </div>
+          </form>
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+              <button type="submit" style={{ padding: "10px 20px", background: "#007BFF", color: "#FFF", borderRadius: "8px", border: "none", cursor: "pointer", marginRight: "8px", marginTop: "15px" }}>
+                Guardar
+              </button>
+              <button type="submit" style={{ padding: "10px 20px", background: "#007BFF", color: "#FFF", borderRadius: "8px", border: "none", cursor: "pointer", marginLeft: "8px", marginTop: "15px" }}>
+                <Link to="/Dashboard" style={{textDecoration: "none", color: "white", display: "flex", alignItems: "center"}}>
+                  Volver
+                </Link>
+              </button>
+        </div>
       </div>
-      <div style={{ marginBottom: "15px" }}>
-        <label>Programa:</label>
-        <select
-          name="program"
-          value={project.program}
-          onChange={handleChange}
-          style={{ width: "100%", padding: "8px" }}
-          disabled={!project.faculty} // Deshabilitar si no hay facultad seleccionada
-        >
-          <option value="">Selecciona un programa</option>
-          {project.faculty &&
-            ProgramasPorFacultad[project.faculty]?.map((program) => (
-              <option key={program} value={program}>
-                {program}
-              </option>
-            ))}
-        </select>
-      </div>
-        <div style={{ marginBottom: "15px" }}>
-          <label>Descripción:</label>
-          <textarea
-            name="description"
-            value={project.description}
-            onChange={handleChange}
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
-        <div style={{ marginBottom: "15px" }}>
-          <label>Estado:</label>
-          <select
-            name="status"
-            value={project.status}
-            onChange={handleChange}
-            style={{ width: "100%", padding: "8px" }}
-          >
-            <option value="En Progreso">En Progreso</option>
-            <option value="Completado">Completado</option>
-            <option value="Pendiente">Pendiente</option>
-          </select>
-        </div>
-        <div style={{ marginBottom: "15px" }}>
-          <label>Líder:</label>
-          <input
-            type="text"
-            name="leader"
-            value={project.leader}
-            onChange={handleChange}
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
-        <div style={{ marginBottom: "15px" }}>
-          <label>Miembros:</label>
-          <input
-            type="text"
-            name="members"
-            value={project.members.join(", ")}
-            onChange={(e) =>
-              setProject((prevProject) => ({
-                ...prevProject,
-                members: e.target.value.split(",").map((member) => member.trim()),
-              }))
-            }
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
-        <div style={{ marginBottom: "15px" }}>
-          <label>Fecha límite:</label>
-          <input
-            type="date"
-            name="deadline"
-            value={project.deadline}
-            onChange={handleChange}
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
-        <button type="submit" style={{ padding: "10px 20px", background: "#007BFF", color: "#FFF", borderRadius: "8px", border: "none", cursor: "pointer", marginRight: "8px" }}>
-          Guardar
-        </button>
-        <button type="submit" style={{ padding: "10px 20px", background: "#007BFF", color: "#FFF", borderRadius: "8px", border: "none", cursor: "pointer", marginLeft: "8px" }}>
-          <Link to="/Dashboard" style={{textDecoration: "none", color: "white", display: "flex", alignItems: "center"}}>
-            Volver
-          </Link>
-        </button>
-      </form>
     </div>
   );
 }
