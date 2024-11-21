@@ -1,10 +1,7 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom";
 import {
-  Bell,
   BookOpen,
-  Users,
-  Calendar,
   BarChart3,
   Layout,
   LogOut
@@ -12,7 +9,6 @@ import {
 import "../Styles/Aplication.css"
 import Dashboard from "../Components/Dashboard"
 import FormProyecto from "../Components/GestionProyecto"
-import Login from "../Pages/Login"
 import ChatBot from "../Components/ChatBot"
 
 function App() {
