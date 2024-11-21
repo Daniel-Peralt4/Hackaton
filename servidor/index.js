@@ -5,6 +5,7 @@ const usuariosRouter = require("./Routes/usuarios");
 const proyectosRouter = require("./Routes/proyectos");
 const facultadesRouter = require("./Routes/facultades");
 const programasRouter = require("./Routes/programas");
+const fasesRouter = require("./Routes/fases");
 
 const app = express();
 const port = 4000;
@@ -27,6 +28,7 @@ app.use("/proyectos", proyectosRouter);
 app.use("/facultades", facultadesRouter);
 app.use("/programas", programasRouter);
 app.use("/auth", usuariosRouter);
+app.use("/fases", fasesRouter);
 
 app.listen(port, ()=>{
     console.log(`El servidor está corriendo en el puerto ${port}`);
