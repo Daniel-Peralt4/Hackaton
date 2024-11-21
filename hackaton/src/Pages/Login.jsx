@@ -41,7 +41,7 @@ const Login = () => {
                 <div className="error-message">{mensaje}</div>
                     <div className="login">
                         <form onSubmit={handleSubmitEvent}>
-                            <h1>CTRL + Project</h1>
+                            <h1>GestorPro</h1>
                             <div className="form_control">
                                 <label htmlFor="user-name" className="label">Usuario:</label>
                                 <input

@@ -1,6 +1,6 @@
 /* Contenedor principal del componente */
 .tareas-container {
-    padding: 20px;
+    padding: 60px;
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -133,22 +133,55 @@
 }
 .tareas-estado-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-top: 10px;
 }
 
-.tareas-boton-cambiar-estado {
-    padding: 15px 30px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.tareas-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.tareas-boton-cambiar-estado:hover {
-    background-color: #025dbe;
+.tareas-select-estado {
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #f8f9fa; /* Fondo gris claro */
+    color: #333; /* Color del texto */
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    appearance: none; /* Quitar estilo predeterminado */
+    -webkit-appearance: none; /* Para navegadores basados en WebKit */
+    -moz-appearance: none; /* Para Firefox */
+    transition: all 0.3s ease; /* Suavidad en los cambios */
+    position: relative;
+}
+
+.tareas-select-estado option {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #333; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    border-bottom: 1px solid #ddd; /* Separador entre opciones */
+}
+
+/* Opciones seleccionadas */
+.tareas-select-estado option:hover {
+    background-color: #007bff; /* Fondo azul */
+    color: #fff; /* Texto blanco */
+}
+
+/* Efecto hover en el select */
+.tareas-select-estado:hover {
+    border-color: #0056b3; /* Borde azul más oscuro */
+    background-color: #e9ecef; /* Fondo gris más oscuro */
+}
+
+/* Estilo al abrir la lista (al enfocar el select) */
+.tareas-select-estado:focus {
+    outline: none;
+    border-color: #0056b3; /* Azul más intenso */
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5); /* Resplandor */
 }

@@ -22,9 +22,9 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem("site", usuario.contraseña);
 
             if (usuario.idrol === 2) {
-                navigate("/Dashboard_admin");
-            } else {
                 navigate("/Dashboard");
+            } else {
+                navigate("/DashboardUser");
             }
         } catch (error) {
             alert("Usuario o contraseña incorrectos");

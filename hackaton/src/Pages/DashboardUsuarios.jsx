@@ -9,7 +9,7 @@ import {
 } from "lucide-react"
 import "../Styles/Aplication.css"
 import Dashboard from "../Components/Dashboard"
-import FormProyecto from "../Components/GestionProyecto"
+import FormProyecto from "../Components/GestionProyectoUser"
 import ChatBot from "../Components/ChatBot"
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
         {/* Main Content */}
         <div className="flex">
           {/* Sidebar */}
-          <aside style={{height: "90vh"}} className="w-64 bg-white h-[calc(100vh-4rem)] shadow-lg aside">
+          <aside className="w-64 bg-white h-[calc(100vh-4rem)] shadow-lg aside">
             <nav className="p-4 navbar">
               <ul className="space-y-2 ul">
                 <li className="li">
