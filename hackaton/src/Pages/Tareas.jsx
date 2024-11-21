@@ -35,28 +35,18 @@ const Tareas = () => {
         }
     };
 
-    const toggleTaskStatus = (index) => {
+    const updateTaskStatus = (index, newStatus) => {
         setTasks({
             ...tasks,
             [currentPhase]: tasks[currentPhase].map((task, i) =>
-                i === index
-                    ? {
-                          ...task,
-                          status:
-                              task.status === "Pendiente"
-                                  ? "En progreso"
-                                  : task.status === "En progreso"
-                                  ? "Completada"
-                                  : "Pendiente",
-                      }
-                    : task
+                i === index ? { ...task, status: newStatus } : task
             ),
         });
     };
 
     return (
         <div className="tareas-container">
-            <h1 className="tareas-proyecto-nombre">Proyecto:</h1>
+            <h1 className="tareas-proyecto-nombre">Proyecto: </h1>
 
             <div className="tareas-fase-selector">
                 <label htmlFor="fase">Fase del proyecto:</label>
@@ -101,18 +91,20 @@ const Tareas = () => {
                     <ul className="tareas-ul">
                         {tasks[currentPhase].map((task, index) => (
                             <li key={index} className="tareas-item">
-                                <strong className="tareas-titulo">{task.title}</strong>
-                                <p className="tareas-descripcion">{task.description}</p>
-                                <div className="tareas-estado-container">
-                                    <span className="tareas-estado">
-                                        Estado: <em>{task.status}</em>
-                                    </span>
-                                    <button
-                                        onClick={() => toggleTaskStatus(index)}
-                                        className="tareas-boton-cambiar-estado"
+                                <div className="tareas-contenido">
+                                    <div>
+                                        <strong className="tareas-titulo">{task.title}</strong>
+                                        <p className="tareas-descripcion">{task.description}</p>
+                                    </div>
+                                    <select
+                                        value={task.status}
+                                        onChange={(e) => updateTaskStatus(index, e.target.value)}
+                                        className="tareas-select-estado"
                                     >
-                                        Cambiar Estado
-                                    </button>
+                                        <option value="Pendiente">Pendiente</option>
+                                        <option value="En progreso">En progreso</option>
+                                        <option value="Completada">Completada</option>
+                                    </select>
                                 </div>
                             </li>
                         ))}
