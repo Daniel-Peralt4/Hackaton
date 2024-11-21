@@ -26,6 +26,8 @@ function initModels(sequelize) {
   fases.hasMany(tareas, { as: "tareas", foreignKey: "idfase"});
   fases.belongsTo(proyectos, { as: "idproyecto_proyecto", foreignKey: "idproyecto"});
   proyectos.hasMany(fases, { as: "fases", foreignKey: "idproyecto"});
+  programas.hasMany(proyectos, { as: "proyectos", foreignKey: "idprograma" });
+  proyectos.belongsTo(programas, { as: "programa", foreignKey: "idprograma" });
   usuarioproyecto.belongsTo(proyectos, { as: "idproyecto_proyecto", foreignKey: "idproyecto"});
   proyectos.hasMany(usuarioproyecto, { as: "usuarioproyectos", foreignKey: "idproyecto"});
   usuarios.belongsTo(roles, { as: "idrol_role", foreignKey: "idrol"});
