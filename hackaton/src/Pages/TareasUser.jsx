@@ -47,7 +47,7 @@ const Tareas = () => {
     };
 
     const Cancelar = () => {
-        navigate("/Dashboard"); // Redirige a /Dashboard
+        navigate("/DashboardUser"); // Redirige a /Dashboard
     };
 
     return (
@@ -86,11 +86,11 @@ const Tareas = () => {
                     onChange={handleInputChange}
                     className="tareas-input"
                 />
-                    <button onClick={addTask} className="tareas-boton-agregar">
+                    <button disabled style={{cursor:"auto", backgroundColor: "#83beff"}} className="tareas-boton-agregar">
                         Agregar
                     </button>
                     <button onClick={Cancelar} className="tareas-boton-agregar" style={{marginLeft: "10px"}}>
-                        Cancelar
+                        Volver
                     </button>
                     
             </div>
