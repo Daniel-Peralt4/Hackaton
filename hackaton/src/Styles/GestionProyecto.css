@@ -13,6 +13,10 @@
   padding-left: 2.5rem;
 }
 
+.btnTareas {
+  border-color: white;
+  border-style: solid;
+}
 
 .boton {
     font-family: inherit;

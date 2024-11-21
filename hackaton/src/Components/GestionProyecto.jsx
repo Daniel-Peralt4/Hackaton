@@ -2,8 +2,7 @@ import React from "react"
 import { Plus, Search, Filter } from "lucide-react"
 import "../Styles/GestionProyecto.css"
 import { Link } from "react-router-dom";
-import CrearProyecto from "../Pages/CrearProyecto"
-import Modal from "./Modal"
+import Tareas from "../Pages/Tareas"
 
 const GestionProyecto = () => {
   const projects = [
@@ -144,12 +143,20 @@ const GestionProyecto = () => {
                     </span>
                   </div>
                 </div>
+                <div style={{display: "flex", justifyContent: "center"}}>
+                  <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-indigo-700 transition-colors btnTareas">
+                    <Link to="/Tareas" style={{textDecoration: "none", color: "white", display: "flex", alignItems: "center"}}>
+                      Ver Tareas
+                    </Link>
+                  </button>
+                </div>
+
               </div>
             </div>
           ))}
         </div>
       </div>
-
+          
     </>
   )
 }
