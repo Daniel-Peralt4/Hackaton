@@ -23,7 +23,7 @@ function App() {
           <div className="container mx-auto flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <BookOpen className="h-6 w-6" />
-              <span className="text-xl font-semibold">CTRL + Project</span>
+              <span className="text-xl font-semibold">GestorPro</span>
             </div>
             <div className="flex items-center space-x-4">
               <div className="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
