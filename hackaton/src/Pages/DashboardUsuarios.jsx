@@ -139,9 +139,9 @@ function App() {
           {/* Main Content Area */}
           <main className="flex-1 p-8">
             {activeTab === "Dashboard" && <Dashboard />}
-            {activeTab === "FormProyecto" && <FormProyecto />}
+            {activeTab === "FormProyecto" && <FormProyecto onNavigate={setActiveTab}/>}
             {activeTab === "Estadisticas" && <Graficas />}
-            {activeTab === "Tareas" && <Tareas />}
+            {activeTab === "Tareas" && <Tareas onNavigate={setActiveTab} />}
           </main>
         </div>
       </div>

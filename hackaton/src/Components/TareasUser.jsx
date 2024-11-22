@@ -3,7 +3,7 @@ import {useState } from "react";
 import "../Styles/Tareas.css"
 import { useNavigate } from "react-router-dom";
 
-const Tareas = () => {
+const TareasUser = ( {onNavigate} ) => {
     const navigate = useNavigate(); 
     const [currentPhase, setCurrentPhase] = useState("Planificación");
     const [tasks, setTasks] = useState({
@@ -47,6 +47,10 @@ const Tareas = () => {
         });
     };
 
+    const Volver = () => {
+        onNavigate("FormProyecto");
+      };
+
     return (
         <>
             {/* <div className="tareas-container"> */}
@@ -85,7 +89,10 @@ const Tareas = () => {
                     />
                         <button onClick={addTask} className="tareas-boton-agregar">
                             Agregar
-                        </button>                        
+                        </button>   
+                        <button onClick={Volver} className="tareas-boton-agregar" style={{marginLeft: "10px"}}>
+                            Volver a Proyectos
+                        </button>                     
                 </div>
 
                 <div className="tareas-lista">
@@ -123,4 +130,4 @@ const Tareas = () => {
     );
 }
 
-export default Tareas;
+export default TareasUser;

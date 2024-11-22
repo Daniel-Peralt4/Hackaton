@@ -2,8 +2,15 @@ import React from "react"
 import { Plus, Search, Filter } from "lucide-react"
 import "../Styles/GestionProyecto.css"
 import Tareas from "../Pages/Tareas"
+import { useNavigate } from "react-router-dom";
 
-const GestionProyecto = () => {
+const GestionProyecto = ({onNavigate}) => {
+  const navigate = useNavigate();
+
+  const btnTareas = () => {
+    onNavigate("Tareas");
+  };
+
   const projects = [
     {
       id: 1,
@@ -163,7 +170,7 @@ const GestionProyecto = () => {
                   </div>
                 </div>
                 <div style={{display: "flex", justifyContent: "center"}}>
-                  <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-indigo-700 transition-colors btnTareas">
+                  <button onClick={btnTareas} className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-indigo-700 transition-colors btnTareas">
                       Ver Tareas
                   </button>
                 </div>
