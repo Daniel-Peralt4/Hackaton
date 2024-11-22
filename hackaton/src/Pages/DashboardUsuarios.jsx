@@ -12,6 +12,7 @@ import Dashboard from "../Components/Dashboard"
 import FormProyecto from "../Components/GestionProyectoUser"
 import ChatBot from "../Components/ChatBot"
 import Graficas from "../Components/Graficas";
+import Tareas from "../Components/Tareas";
 
 function App() {
   const [activeTab, setActiveTab] = useState("Dashboard")
@@ -106,6 +107,19 @@ function App() {
                   </button>
                 </li >
                 <li className="li">
+                  <button
+                    onClick={() => setActiveTab("Tareas")}
+                    className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg button ${
+                      activeTab === "Tareas"
+                        ? "bg-indigo-50 text-indigo-600"
+                        : "text-gray-600 hover:bg-gray-50"
+                    }`}
+                  >
+                    <FileText className="h-5 w-5" />
+                    <span className="span">Tareas</span>
+                  </button>
+                </li >
+                <li className="li">
                   <Link
                     to="/Login"
                     className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg button Link ${
@@ -127,7 +141,7 @@ function App() {
             {activeTab === "Dashboard" && <Dashboard />}
             {activeTab === "FormProyecto" && <FormProyecto />}
             {activeTab === "Estadisticas" && <Graficas />}
-            {/* {activeTab === "notifications" && <Notifications />} */}
+            {activeTab === "Tareas" && <Tareas />}
           </main>
         </div>
       </div>
