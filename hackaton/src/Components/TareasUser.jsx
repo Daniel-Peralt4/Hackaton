@@ -47,10 +47,6 @@ const Tareas = () => {
         });
     };
 
-    const Cancelar = () => {
-        navigate("/Dashboard"); // Redirige a /Dashboard
-    };
-
     return (
         <>
             {/* <div className="tareas-container"> */}
@@ -89,11 +85,7 @@ const Tareas = () => {
                     />
                         <button onClick={addTask} className="tareas-boton-agregar">
                             Agregar
-                        </button>
-                        <button onClick={Cancelar} className="tareas-boton-agregar" style={{marginLeft: "10px"}}>
-                            Cancelar
-                        </button>
-                        
+                        </button>                        
                 </div>
 
                 <div className="tareas-lista">

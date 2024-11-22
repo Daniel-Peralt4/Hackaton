@@ -1,7 +1,6 @@
 import React from "react"
 import { Plus, Search, Filter } from "lucide-react"
 import "../Styles/GestionProyecto.css"
-import { Link } from "react-router-dom";
 import Tareas from "../Pages/Tareas"
 
 const GestionProyecto = () => {
@@ -63,7 +62,7 @@ const GestionProyecto = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map(project => (
+          {projects.map(project => 
             <div
               key={project.id}
               className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow"
@@ -165,15 +164,13 @@ const GestionProyecto = () => {
                 </div>
                 <div style={{display: "flex", justifyContent: "center"}}>
                   <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-indigo-700 transition-colors btnTareas">
-                    <Link to="/TareasUser" style={{textDecoration: "none", color: "white", display: "flex", alignItems: "center"}}>
                       Ver Tareas
-                    </Link>
                   </button>
                 </div>
 
               </div>
             </div>
-          ))}
+          )}
         </div>
       </div>
           

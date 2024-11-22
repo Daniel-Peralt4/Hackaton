@@ -95,19 +95,6 @@ function App() {
                 </li> */}
                 <li className="li">
                   <button
-                    onClick={() => setActiveTab("Estadisticas")}
-                    className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg button ${
-                      activeTab === "Estadisticas"
-                        ? "bg-indigo-50 text-indigo-600"
-                        : "text-gray-600 hover:bg-gray-50"
-                    }`}
-                  >
-                    <BarChart3 className="h-5 w-5" />
-                    <span className="span">Estadísticas</span>
-                  </button>
-                </li >
-                <li className="li">
-                  <button
                     onClick={() => setActiveTab("Tareas")}
                     className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg button ${
                       activeTab === "Tareas"
@@ -117,6 +104,19 @@ function App() {
                   >
                     <FileText className="h-5 w-5" />
                     <span className="span">Tareas</span>
+                  </button>
+                </li >
+                <li className="li">
+                  <button
+                    onClick={() => setActiveTab("Estadisticas")}
+                    className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg button ${
+                      activeTab === "Estadisticas"
+                        ? "bg-indigo-50 text-indigo-600"
+                        : "text-gray-600 hover:bg-gray-50"
+                    }`}
+                  >
+                    <BarChart3 className="h-5 w-5" />
+                    <span className="span">Estadísticas</span>
                   </button>
                 </li >
                 <li className="li">
