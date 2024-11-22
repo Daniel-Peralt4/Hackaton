@@ -120,5 +120,4 @@ const GestionProyecto = () => {
     </>
   );
 };
-
 export default GestionProyecto;

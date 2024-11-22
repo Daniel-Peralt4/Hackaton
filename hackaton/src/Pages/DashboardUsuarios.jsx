@@ -11,6 +11,8 @@ import "../Styles/Aplication.css"
 import Dashboard from "../Components/Dashboard"
 import FormProyecto from "../Components/GestionProyectoUser"
 import ChatBot from "../Components/ChatBot"
+import Graficas from "../Components/Graficas";
+import Tareas from "../Components/TareasUser";
 
 function App() {
   const [activeTab, setActiveTab] = useState("Dashboard")
@@ -37,7 +39,7 @@ function App() {
         <div className="flex">
           {/* Sidebar */}
           <aside className="w-64 bg-white h-[calc(100vh-4rem)] shadow-lg aside">
-            <nav className="p-4 navbar">
+            <nav style={{height: "90vh", overflow:"auto"}} className="p-4 navbar">
               <ul className="space-y-2 ul">
                 <li className="li">
                   <button
@@ -93,6 +95,19 @@ function App() {
                 </li> */}
                 <li className="li">
                   <button
+                    onClick={() => setActiveTab("Tareas")}
+                    className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg button ${
+                      activeTab === "Tareas"
+                        ? "bg-indigo-50 text-indigo-600"
+                        : "text-gray-600 hover:bg-gray-50"
+                    }`}
+                  >
+                    <FileText className="h-5 w-5" />
+                    <span className="span">Tareas</span>
+                  </button>
+                </li >
+                <li className="li">
+                  <button
                     onClick={() => setActiveTab("Estadisticas")}
                     className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg button ${
                       activeTab === "Estadisticas"
@@ -124,8 +139,9 @@ function App() {
           {/* Main Content Area */}
           <main className="flex-1 p-8">
             {activeTab === "Dashboard" && <Dashboard />}
-            {activeTab === "FormProyecto" && <FormProyecto />}
-            {/* {activeTab === "notifications" && <Notifications />} */}
+            {activeTab === "FormProyecto" && <FormProyecto onNavigate={setActiveTab}/>}
+            {activeTab === "Estadisticas" && <Graficas />}
+            {activeTab === "Tareas" && <Tareas onNavigate={setActiveTab} />}
           </main>
         </div>
       </div>
