@@ -1,10 +1,15 @@
 import React from "react"
 import { Plus, Search, Filter } from "lucide-react"
 import "../Styles/GestionProyecto.css"
-import { Link } from "react-router-dom";
-import Tareas from "../Pages/Tareas"
+import {useNavigate, Link } from "react-router-dom";
 
-const GestionProyecto = () => {
+const GestionProyecto = ({onNavigate}) => {
+  const navigate = useNavigate();
+
+  const btnTareas = () => {
+    onNavigate("Tareas");
+  };
+
   const projects = [
     {
       id: 1,
@@ -47,8 +52,9 @@ const GestionProyecto = () => {
           </button>
         </div>
 
-        {/* Search and Filter */}
-        <div className="flex space-x-4">
+
+         {/* Search and Filter */}
+         <div className="flex space-x-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
             <input
@@ -166,10 +172,8 @@ const GestionProyecto = () => {
                   </div>
                 </div>
                 <div style={{display: "flex", justifyContent: "center"}}>
-                  <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-indigo-700 transition-colors btnTareas">
-                    <Link to="/Tareas" style={{textDecoration: "none", color: "white", display: "flex", alignItems: "center"}}>
+                  <button onClick={btnTareas} className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-indigo-700 transition-colors btnTareas" style={{cursor: "pointer"}}>
                       Ver Tareas
-                    </Link>
                   </button>
                 </div>
 

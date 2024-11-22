@@ -3,7 +3,7 @@ import {useState } from "react";
 import "../Styles/Tareas.css"
 import { useNavigate } from "react-router-dom";
 
-const TareasUser = ( {onNavigate} ) => {
+const Tareas = ( {onNavigate} ) => {
     const navigate = useNavigate(); 
     const [currentPhase, setCurrentPhase] = useState("Planificación");
     const [tasks, setTasks] = useState({
@@ -26,6 +26,18 @@ const TareasUser = ( {onNavigate} ) => {
         setNewTask({ ...newTask, [name]: value });
     };
 
+    const addTask = () => {
+        if (newTask.title.trim() && newTask.description.trim()) {
+            setTasks({
+                ...tasks,
+                [currentPhase]: [...tasks[currentPhase], newTask],
+            });
+            setNewTask({ title: "", description: "", status: "Pendiente" });
+        } else {
+            alert("Por favor, complete todos los campos.");
+        }
+    };
+
     const updateTaskStatus = (index, newStatus) => {
         setTasks({
             ...tasks,
@@ -36,7 +48,7 @@ const TareasUser = ( {onNavigate} ) => {
     };
 
     const Volver = () => {
-        onNavigate("FormProyecto");
+        onNavigate("GestionProyecto");
       };
 
     return (
@@ -75,7 +87,7 @@ const TareasUser = ( {onNavigate} ) => {
                         onChange={handleInputChange}
                         className="tareas-input"
                     />
-                        <button  disabled style={{cursor:"auto", backgroundColor: "#83beff"}} className="tareas-boton-agregar">
+                        <button onClick={addTask} className="tareas-boton-agregar">
                             Agregar
                         </button>   
                         <button onClick={Volver} className="tareas-boton-agregar" style={{marginLeft: "10px"}}>
@@ -118,4 +130,4 @@ const TareasUser = ( {onNavigate} ) => {
     );
 }
 
-export default TareasUser;
+export default Tareas;
