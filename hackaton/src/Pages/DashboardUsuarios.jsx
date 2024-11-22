@@ -12,7 +12,7 @@ import Dashboard from "../Components/Dashboard"
 import FormProyecto from "../Components/GestionProyectoUser"
 import ChatBot from "../Components/ChatBot"
 import Graficas from "../Components/Graficas";
-import Tareas from "../Components/Tareas";
+import Tareas from "../Components/TareasUser";
 
 function App() {
   const [activeTab, setActiveTab] = useState("Dashboard")
@@ -39,7 +39,7 @@ function App() {
         <div className="flex">
           {/* Sidebar */}
           <aside className="w-64 bg-white h-[calc(100vh-4rem)] shadow-lg aside">
-            <nav className="p-4 navbar">
+            <nav style={{height: "90vh", overflow:"auto"}} className="p-4 navbar">
               <ul className="space-y-2 ul">
                 <li className="li">
                   <button
