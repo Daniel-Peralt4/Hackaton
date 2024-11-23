@@ -91,7 +91,7 @@ const Tareas = ( {onNavigate} ) => {
                             Agregar
                         </button>   
                         <button onClick={Volver} className="tareas-boton-agregar" style={{marginLeft: "10px"}}>
-                            Volver a Proyectos
+                            Ir a Proyectos
                         </button>                     
                 </div>
 

@@ -27,10 +27,8 @@ function App() {
               <BookOpen className="h-6 w-6" />
               <span className="text-xl font-semibold">GestorPro</span>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
-                <span className="text-sm font-medium">JP</span>
-              </div>
+            <div className="flex items-center space-x-4 nombre">
+                <span style={{fontSize: "16px"}} className="text-sm font-medium ">Juan Perez</span>
             </div>
           </div>
         </nav>

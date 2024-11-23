@@ -112,7 +112,7 @@ const GestionProyecto = ({onNavigate}) => {
           <h1 className="text-2xl font-bold text-gray-800">Proyectos</h1>
           <button
             onClick={() => setShowForm(true)}
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-indigo-700 transition-colors"
+            className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-indigo-700 transition-colors botonProyecto"
           >
             <Plus className="h-5 w-5" />
             <span>Nuevo Proyecto</span>
@@ -128,12 +128,12 @@ const GestionProyecto = ({onNavigate}) => {
                 placeholder="Buscar proyectos..."
                 value={filters.search}
                 onChange={e => setFilters({ ...filters, search: e.target.value })}
-                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-fullfilter pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 input"
               />
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="px-4 py-2 border border-gray-200 rounded-lg flex items-center space-x-2 hover:bg-gray-50"
+              className="px-4 py-2 border border-gray-200 rounded-lg flex items-center space-x-2 hover:bg-gray-50 boton"
             >
               <Filter className="h-5 w-5 text-gray-500" />
               <span>Filtros</span>
@@ -141,7 +141,7 @@ const GestionProyecto = ({onNavigate}) => {
           </div>
   
           {showFilters && (
-            <div className="grid grid-cols-3 gap-4 p-4 bg-white rounded-lg shadow-sm">
+            <div className="grid grid-cols-3 gap-4 p-4 bg-white rounded-lg shadow-sm filtros">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Estado
@@ -151,7 +151,7 @@ const GestionProyecto = ({onNavigate}) => {
                   onChange={e =>
                     setFilters({ ...filters, status: e.target.value })
                   }
-                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 select"
                 >
                   <option value="">Todos</option>
                   {uniqueStatuses.map(status => (
@@ -170,7 +170,7 @@ const GestionProyecto = ({onNavigate}) => {
                   onChange={e =>
                     setFilters({ ...filters, faculty: e.target.value })
                   }
-                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 select"
                 >
                   <option value="">Todas</option>
                   {uniqueFaculties.map(faculty => (
@@ -189,7 +189,7 @@ const GestionProyecto = ({onNavigate}) => {
                   onChange={e =>
                     setFilters({ ...filters, program: e.target.value })
                   }
-                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 select"
                 >
                   <option value="">Todos</option>
                   {uniquePrograms.map(program => (
@@ -209,20 +209,20 @@ const GestionProyecto = ({onNavigate}) => {
               key={project.id}
               className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow"
             >
-              <div className="space-y-4">
+              <div className="space-y-4 proyectos">
                 <div className="flex justify-between items-start">
                   <div className="flex space-x-2">
                     <button
                       onClick={() => setEditingProject(project)}
-                      className="p-1 text-gray-400 hover:text-indigo-600"
+                      className="p-1 text-gray-400 hover:text-indigo-600 buttonedit"
                     >
-                      <Edit2 className="h-4 w-4" />
+                      <Edit2 className="h-4 w-4 edit" />
                     </button>
                     <button
                       onClick={() => handleDeleteProject(project.id)}
-                      className="p-1 text-gray-400 hover:text-red-600"
+                      className="p-1 text-gray-400 hover:text-red-600 buttondelete"
                     >
-                      <Trash2 className="h-4 w-4" />
+                      <Trash2 className="h-4 w-4 delete" />
                     </button>
                   </div>
                 </div>
