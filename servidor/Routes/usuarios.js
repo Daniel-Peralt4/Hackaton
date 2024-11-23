@@ -22,14 +22,14 @@ usuariosRouter.get('/', async function (req, res, next) {
 
 usuariosRouter.post('/login', async function(req, res, next) {
     try {
-        const { username, password } = req.body;
-        const resultado = await usuariosService.autenticarUsuario(username, password);
+        const { usuario, contraseña } = req.body;
+        const resultado = await usuariosService.autenticarUsuario(usuario, contraseña);
         
         if (!resultado.autenticado) {
             return res.status(401).json({ mensaje: resultado.mensaje });
         }
 
-        res.status(200).json({ mensaje: resultado.mensaje, usuario: resultado.usuario });
+        res.status(200).json({ mensaje: resultado.mensaje, usuario: resultado.dbusuario });
     } catch (err) {
         console.error("Error mientras se autenticaba el usuario", err.message);
         next(err);

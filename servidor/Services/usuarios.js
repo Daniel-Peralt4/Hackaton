@@ -22,18 +22,18 @@ async function listarUsuarios() {
     }
 };
 
-async function autenticarUsuario(user, contraseña) {
+async function autenticarUsuario(usuario, contraseña) {
     try {
-        const usuario = await models.usuarios.findOne({where: {usuario: user}});
+        const dbusuario = await models.usuarios.findOne({where: {usuario: usuario}});
         
-        if(!usuario){
+        if(!dbusuario){
             return {mensaje: "Usuario no encontrado", autenticado: false}
         }
-        if(usuario.contraseña !== contraseña){
+        if(dbusuario.contraseña !== contraseña){
             return {mensaje: "Contraseña incorrecta", autenticado: false}
         }
 
-        return {mensaje: "Usuario autenticado correctamente", autenticado: true, usuario}
+        return {mensaje: "Usuario autenticado correctamente", autenticado: true, dbusuario}
     } catch (error) {
         console.log("Error al autenticar el usuario", error)
         return {mensaje: "Error al autenticar usuario", autenticado: false}
