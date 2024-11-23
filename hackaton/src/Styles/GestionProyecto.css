@@ -1,5 +1,41 @@
+.p-6 {
+  margin-top: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.filtros {
+  margin-bottom: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
+}
+
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.select {
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .relative {
@@ -11,12 +47,31 @@
 }
 .pl-10 {
   padding-left: 2.5rem;
+  width: 100%;
+}
+
+.w-fullfilter {
+  width: 100%;
 }
 
 .btnTareas {
   border-color: white;
   border-style: solid;
 }
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.relative {
+  position: relative;
+}
+
+
 
 .boton {
     font-family: inherit;
@@ -40,10 +95,21 @@
 }
 }
 
+.w-4 {
+  width: 1rem;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
 * {
   box-sizing: border-box;
 }
 
+.flex.space-x-4 {
+  width: 100%;
+}
 
 .rounded-lg {
   border-radius: 0.5rem;
@@ -77,6 +143,21 @@ input:focus {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+.buttonedit, .buttondelete {
+  background-color: transparent;
+  background-image: none;
+  border-style: solid;
+  border-color: white;
+}
+
+.edit:hover {
+  color: rgb(79 70 229);
+}
+
+.delete:hover {
+  color: red;
+}
+
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -105,8 +186,11 @@ input:focus {
   position: absolute;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
@@ -189,19 +273,10 @@ input:focus {
   align-items: flex-start;
 }
 
-.flex {
-  display: flex;
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-
-.p-6 {
-  padding: 1rem;
-}
-
 
 .text-gray-800 {
   --tw-text-opacity: 1;

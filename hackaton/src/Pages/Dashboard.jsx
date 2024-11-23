@@ -5,12 +5,14 @@ import {
   BarChart3,
   Layout,
   LogOut,
+  FileText
 } from "lucide-react"
 import "../Styles/Aplication.css"
 import Dashboard from "../Components/Dashboard"
-import FormProyecto from "../Components/GestionProyecto"
+import GestionProyecto from "../Components/GestionProyecto"
 import ChatBot from "../Components/ChatBot"
 import Graficas from "../Components/Graficas";
+import Tareas from "../Components/Tareas";
 
 function App() {
   const [activeTab, setActiveTab] = useState("Dashboard")
@@ -25,10 +27,8 @@ function App() {
               <BookOpen className="h-6 w-6" />
               <span className="text-xl font-semibold">GestorPro</span>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
-                <span className="text-sm font-medium">JP</span>
-              </div>
+            <div className="flex items-center space-x-4 nombre">
+                <span style={{fontSize: "16px"}} className="text-sm font-medium ">Juan Perez</span>
             </div>
           </div>
         </nav>
@@ -54,9 +54,9 @@ function App() {
                 </li>
                 <li className="li">
                   <button
-                    onClick={() => setActiveTab("FormProyecto")}
+                    onClick={() => setActiveTab("GestionProyecto")}
                     className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg button ${
-                      activeTab === "FormProyecto"
+                      activeTab === "GestionProyecto"
                         ? "bg-indigo-50 text-indigo-600"
                         : "text-gray-600 hover:bg-gray-50"
                     }`}
@@ -93,6 +93,19 @@ function App() {
                 </li> */}
                 <li className="li">
                   <button
+                    onClick={() => setActiveTab("Tareas")}
+                    className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg button ${
+                      activeTab === "Tareas"
+                        ? "bg-indigo-50 text-indigo-600"
+                        : "text-gray-600 hover:bg-gray-50"
+                    }`}
+                  >
+                    <FileText className="h-5 w-5" />
+                    <span className="span">Tareas</span>
+                  </button>
+                </li >
+                <li className="li">
+                  <button
                     onClick={() => setActiveTab("Estadisticas")}
                     className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg button ${
                       activeTab === "Estadisticas"
@@ -124,9 +137,9 @@ function App() {
           {/* Main Content Area */}
           <main className="flex-1 p-8">
             {activeTab === "Dashboard" && <Dashboard />}
-            {activeTab === "FormProyecto" && <FormProyecto />}
+            {activeTab === "GestionProyecto" && <GestionProyecto onNavigate={setActiveTab}/>}
             {activeTab === "Estadisticas" && <Graficas />}
-            {/* {activeTab === "notifications" && <Notifications />} */}
+            {activeTab === "Tareas" && <Tareas onNavigate={setActiveTab} />}
           </main>
         </div>
       </div>

@@ -118,6 +118,7 @@ const GestionProyecto = () => {
         </div>
       </div>
     </>
+
   );
 };
 export default GestionProyecto;

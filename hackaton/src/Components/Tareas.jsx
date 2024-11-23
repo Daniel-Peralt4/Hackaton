@@ -1,9 +1,9 @@
-import {Link, useState } from "react";
+import React from "react";
+import {useState } from "react";
 import "../Styles/Tareas.css"
 import { useNavigate } from "react-router-dom";
-import { BookOpen } from "lucide-react";
 
-const Tareas = () => {
+const Tareas = ( {onNavigate} ) => {
     const navigate = useNavigate(); 
     const [currentPhase, setCurrentPhase] = useState("Planificación");
     const [tasks, setTasks] = useState({
@@ -47,32 +47,14 @@ const Tareas = () => {
         });
     };
 
-    const Cancelar = () => {
-        navigate("/Dashboard"); // Redirige a /Dashboard
-    };
+    const Volver = () => {
+        onNavigate("GestionProyecto");
+      };
 
     return (
         <>
-            <div style={{margin: "0", padding:"0"}}>
-                <nav className="bg-indigo-600 text-white px-6 py-4 nav">
-                    <div className="container mx-auto flex justify-between items-center">
-                        <div className="flex items-center space-x-2">
-                        <BookOpen className="h-6 w-6" />
-                        <span className="text-xl font-semibold">GestorPro</span>
-                        </div>
-                        <div className="flex items-center space-x-4">
-                        <div className="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
-                            <span className="text-sm font-medium">JP</span>
-                        </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-
-            <div className="tareas-container">
-
+            {/* <div className="tareas-container"> */}
                 <h1 className="tareas-proyecto-nombre">Proyecto: </h1>
-
                 <div className="tareas-fase-selector">
                     <label htmlFor="fase">Fase del proyecto:</label>
                     <select
@@ -107,11 +89,10 @@ const Tareas = () => {
                     />
                         <button onClick={addTask} className="tareas-boton-agregar">
                             Agregar
-                        </button>
-                        <button onClick={Cancelar} className="tareas-boton-agregar" style={{marginLeft: "10px"}}>
-                            Cancelar
-                        </button>
-                        
+                        </button>   
+                        <button onClick={Volver} className="tareas-boton-agregar" style={{marginLeft: "10px"}}>
+                            Ir a Proyectos
+                        </button>                     
                 </div>
 
                 <div className="tareas-lista">
@@ -144,9 +125,9 @@ const Tareas = () => {
                         </p>
                     )}
                 </div>
-            </div>
+            {/* </div> */}
         </>
     );
-};
+}
 
 export default Tareas;
