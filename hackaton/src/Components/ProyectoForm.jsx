@@ -121,7 +121,7 @@ const ProyectoForm = ({ onClose, onSubmit, project }) => {
               <input
                   className="form-input"
                   type="text"
-                  name="name"
+                  name="title"
                   value={formData.title}
                   onChange={handleChange}
                   style={{ width: "100%", padding: "8px" }}
